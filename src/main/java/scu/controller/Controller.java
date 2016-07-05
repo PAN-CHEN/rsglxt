@@ -14,4 +14,9 @@ public class Controller {
     public String index() {
         return "Hello world";
     }
+
+    @RequestMapping("/login")
+    public String login(){
+        return "login";
+    }
 }
