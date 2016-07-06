@@ -3,10 +3,10 @@ package scu.model;
 import javax.persistence.*;
 
 /**
- * Created by lijiankuan on 16/7/6.
+ * Created by DAi on 16/7/6.
  */
 @Entity
-@Table(name = "FormalEmplAllowRatio", schema = "rsglxt", catalog = "")
+@Table(name = "FormalEmplAllowRatio", schema = "RSGLXT", catalog = "")
 public class FormalEmplAllowRatioEntity {
     private int emplNo;
     private double allowRatio;

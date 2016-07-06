@@ -3,10 +3,10 @@ package scu.model;
 import javax.persistence.*;
 
 /**
- * Created by lijiankuan on 16/7/6.
+ * Created by DAi on 16/7/6.
  */
 @Entity
-@Table(name = "EmplProfSkill", schema = "rsglxt", catalog = "")
+@Table(name = "EmplProfSkill", schema = "RSGLXT", catalog = "")
 @IdClass(EmplProfSkillEntityPK.class)
 public class EmplProfSkillEntity {
     private int emplNo;

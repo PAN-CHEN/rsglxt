@@ -3,21 +3,21 @@ package scu.model;
 import javax.persistence.*;
 
 /**
- * Created by lijiankuan on 16/7/6.
+ * Created by DAi on 16/7/6.
  */
 @Entity
-@Table(name = "Department", schema = "rsglxt", catalog = "")
+@Table(name = "Department", schema = "RSGLXT", catalog = "")
 public class DepartmentEntity {
-    private int departNo;
+    private String departNo;
     private String departName;
 
     @Id
     @Column(name = "DepartNo")
-    public int getDepartNo() {
+    public String getDepartNo() {
         return departNo;
     }
 
-    public void setDepartNo(int departNo) {
+    public void setDepartNo(String departNo) {
         this.departNo = departNo;
     }
 
@@ -38,7 +38,7 @@ public class DepartmentEntity {
 
         DepartmentEntity that = (DepartmentEntity) o;
 
-        if (departNo != that.departNo) return false;
+        if (departNo != null ? !departNo.equals(that.departNo) : that.departNo != null) return false;
         if (departName != null ? !departName.equals(that.departName) : that.departName != null) return false;
 
         return true;
@@ -46,7 +46,7 @@ public class DepartmentEntity {
 
     @Override
     public int hashCode() {
-        int result = departNo;
+        int result = departNo != null ? departNo.hashCode() : 0;
         result = 31 * result + (departName != null ? departName.hashCode() : 0);
         return result;
     }

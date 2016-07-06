@@ -4,14 +4,13 @@ import javax.persistence.*;
 import java.sql.Date;
 
 /**
- * Created by lijiankuan on 16/7/6.
+ * Created by DAi on 16/7/6.
  */
 @Entity
-@Table(name = "EmplTemoAllow", schema = "rsglxt", catalog = "")
+@Table(name = "EmplTemoAllow", schema = "RSGLXT", catalog = "")
 public class EmplTemoAllowEntity {
     private int emplNo;
     private Date date;
-    private String allowName;
 
     @Id
     @Column(name = "EmplNo")
@@ -33,16 +32,6 @@ public class EmplTemoAllowEntity {
         this.date = date;
     }
 
-    @Basic
-    @Column(name = "AllowName")
-    public String getAllowName() {
-        return allowName;
-    }
-
-    public void setAllowName(String allowName) {
-        this.allowName = allowName;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -52,7 +41,6 @@ public class EmplTemoAllowEntity {
 
         if (emplNo != that.emplNo) return false;
         if (date != null ? !date.equals(that.date) : that.date != null) return false;
-        if (allowName != null ? !allowName.equals(that.allowName) : that.allowName != null) return false;
 
         return true;
     }
@@ -61,7 +49,6 @@ public class EmplTemoAllowEntity {
     public int hashCode() {
         int result = emplNo;
         result = 31 * result + (date != null ? date.hashCode() : 0);
-        result = 31 * result + (allowName != null ? allowName.hashCode() : 0);
         return result;
     }
 }

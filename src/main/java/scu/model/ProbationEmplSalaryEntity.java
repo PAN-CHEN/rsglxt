@@ -1,15 +1,17 @@
 package scu.model;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 /**
- * Created by lijiankuan on 16/7/6.
+ * Created by DAi on 16/7/6.
  */
 @Entity
-@Table(name = "ProbationEmplSalary", schema = "rsglxt", catalog = "")
+@Table(name = "ProbationEmplSalary", schema = "RSGLXT", catalog = "")
 public class ProbationEmplSalaryEntity {
     private int proEmplNo;
     private double salary;
+    private Date date;
 
     @Id
     @Column(name = "ProEmplNo")
@@ -31,6 +33,16 @@ public class ProbationEmplSalaryEntity {
         this.salary = salary;
     }
 
+    @Basic
+    @Column(name = "Date")
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -40,6 +52,7 @@ public class ProbationEmplSalaryEntity {
 
         if (proEmplNo != that.proEmplNo) return false;
         if (Double.compare(that.salary, salary) != 0) return false;
+        if (date != null ? !date.equals(that.date) : that.date != null) return false;
 
         return true;
     }
@@ -51,6 +64,7 @@ public class ProbationEmplSalaryEntity {
         result = proEmplNo;
         temp = Double.doubleToLongBits(salary);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (date != null ? date.hashCode() : 0);
         return result;
     }
 }

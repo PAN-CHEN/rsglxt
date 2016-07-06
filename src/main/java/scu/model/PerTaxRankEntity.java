@@ -3,10 +3,10 @@ package scu.model;
 import javax.persistence.*;
 
 /**
- * Created by lijiankuan on 16/7/6.
+ * Created by DAi on 16/7/6.
  */
 @Entity
-@Table(name = "PerTaxRank", schema = "rsglxt", catalog = "")
+@Table(name = "PerTaxRank", schema = "RSGLXT", catalog = "")
 public class PerTaxRankEntity {
     private String perTaxRank;
     private double taxRank;

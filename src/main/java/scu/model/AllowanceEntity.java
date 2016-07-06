@@ -4,18 +4,18 @@ import javax.persistence.*;
 import java.sql.Date;
 
 /**
- * Created by lijiankuan on 16/7/6.
+ * Created by DAi on 16/7/6.
  */
 @Entity
-@Table(name = "Allowance", schema = "rsglxt", catalog = "")
+@Table(name = "Allowance", schema = "RSGLXT", catalog = "")
 @IdClass(AllowanceEntityPK.class)
 public class AllowanceEntity {
     private int emplNo;
     private Date date;
     private Double reGive;
     private Double weGive;
-    private Double specAllow;
     private Double foodGive;
+    private Double specAllow;
     private Double accumFund;
     private Double allowRatio;
     private double allow;
@@ -61,16 +61,6 @@ public class AllowanceEntity {
     }
 
     @Basic
-    @Column(name = "SpecAllow")
-    public Double getSpecAllow() {
-        return specAllow;
-    }
-
-    public void setSpecAllow(Double specAllow) {
-        this.specAllow = specAllow;
-    }
-
-    @Basic
     @Column(name = "FoodGive")
     public Double getFoodGive() {
         return foodGive;
@@ -78,6 +68,16 @@ public class AllowanceEntity {
 
     public void setFoodGive(Double foodGive) {
         this.foodGive = foodGive;
+    }
+
+    @Basic
+    @Column(name = "SpecAllow")
+    public Double getSpecAllow() {
+        return specAllow;
+    }
+
+    public void setSpecAllow(Double specAllow) {
+        this.specAllow = specAllow;
     }
 
     @Basic
@@ -122,8 +122,8 @@ public class AllowanceEntity {
         if (date != null ? !date.equals(that.date) : that.date != null) return false;
         if (reGive != null ? !reGive.equals(that.reGive) : that.reGive != null) return false;
         if (weGive != null ? !weGive.equals(that.weGive) : that.weGive != null) return false;
-        if (specAllow != null ? !specAllow.equals(that.specAllow) : that.specAllow != null) return false;
         if (foodGive != null ? !foodGive.equals(that.foodGive) : that.foodGive != null) return false;
+        if (specAllow != null ? !specAllow.equals(that.specAllow) : that.specAllow != null) return false;
         if (accumFund != null ? !accumFund.equals(that.accumFund) : that.accumFund != null) return false;
         if (allowRatio != null ? !allowRatio.equals(that.allowRatio) : that.allowRatio != null) return false;
 
@@ -138,8 +138,8 @@ public class AllowanceEntity {
         result = 31 * result + (date != null ? date.hashCode() : 0);
         result = 31 * result + (reGive != null ? reGive.hashCode() : 0);
         result = 31 * result + (weGive != null ? weGive.hashCode() : 0);
-        result = 31 * result + (specAllow != null ? specAllow.hashCode() : 0);
         result = 31 * result + (foodGive != null ? foodGive.hashCode() : 0);
+        result = 31 * result + (specAllow != null ? specAllow.hashCode() : 0);
         result = 31 * result + (accumFund != null ? accumFund.hashCode() : 0);
         result = 31 * result + (allowRatio != null ? allowRatio.hashCode() : 0);
         temp = Double.doubleToLongBits(allow);

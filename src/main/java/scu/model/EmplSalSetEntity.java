@@ -3,13 +3,12 @@ package scu.model;
 import javax.persistence.*;
 
 /**
- * Created by lijiankuan on 16/7/6.
+ * Created by DAi on 16/7/6.
  */
 @Entity
-@Table(name = "EmplSalSet", schema = "rsglxt", catalog = "")
+@Table(name = "EmplSalSet", schema = "RSGLXT", catalog = "")
 public class EmplSalSetEntity {
     private int emplNo;
-    private String perTaxRank;
     private String salAuth;
     private String currency;
 
@@ -21,16 +20,6 @@ public class EmplSalSetEntity {
 
     public void setEmplNo(int emplNo) {
         this.emplNo = emplNo;
-    }
-
-    @Basic
-    @Column(name = "PerTaxRank")
-    public String getPerTaxRank() {
-        return perTaxRank;
-    }
-
-    public void setPerTaxRank(String perTaxRank) {
-        this.perTaxRank = perTaxRank;
     }
 
     @Basic
@@ -61,7 +50,6 @@ public class EmplSalSetEntity {
         EmplSalSetEntity that = (EmplSalSetEntity) o;
 
         if (emplNo != that.emplNo) return false;
-        if (perTaxRank != null ? !perTaxRank.equals(that.perTaxRank) : that.perTaxRank != null) return false;
         if (salAuth != null ? !salAuth.equals(that.salAuth) : that.salAuth != null) return false;
         if (currency != null ? !currency.equals(that.currency) : that.currency != null) return false;
 
@@ -71,7 +59,6 @@ public class EmplSalSetEntity {
     @Override
     public int hashCode() {
         int result = emplNo;
-        result = 31 * result + (perTaxRank != null ? perTaxRank.hashCode() : 0);
         result = 31 * result + (salAuth != null ? salAuth.hashCode() : 0);
         result = 31 * result + (currency != null ? currency.hashCode() : 0);
         return result;

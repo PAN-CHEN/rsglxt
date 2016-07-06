@@ -3,16 +3,14 @@ package scu.model;
 import javax.persistence.*;
 
 /**
- * Created by lijiankuan on 16/7/6.
+ * Created by DAi on 16/7/6.
  */
 @Entity
-@Table(name = "EmplInfo", schema = "rsglxt", catalog = "")
+@Table(name = "EmplInfo", schema = "RSGLXT", catalog = "")
 public class EmplInfoEntity {
     private int emplNo;
     private String name;
-    private String edu;
     private String addr;
-    private String depNo;
     private String id;
     private String postNo;
     private String titleNo;
@@ -44,16 +42,6 @@ public class EmplInfoEntity {
     }
 
     @Basic
-    @Column(name = "Edu")
-    public String getEdu() {
-        return edu;
-    }
-
-    public void setEdu(String edu) {
-        this.edu = edu;
-    }
-
-    @Basic
     @Column(name = "Addr")
     public String getAddr() {
         return addr;
@@ -61,16 +49,6 @@ public class EmplInfoEntity {
 
     public void setAddr(String addr) {
         this.addr = addr;
-    }
-
-    @Basic
-    @Column(name = "DepNo")
-    public String getDepNo() {
-        return depNo;
-    }
-
-    public void setDepNo(String depNo) {
-        this.depNo = depNo;
     }
 
     @Basic
@@ -172,9 +150,7 @@ public class EmplInfoEntity {
 
         if (emplNo != that.emplNo) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
-        if (edu != null ? !edu.equals(that.edu) : that.edu != null) return false;
         if (addr != null ? !addr.equals(that.addr) : that.addr != null) return false;
-        if (depNo != null ? !depNo.equals(that.depNo) : that.depNo != null) return false;
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (postNo != null ? !postNo.equals(that.postNo) : that.postNo != null) return false;
         if (titleNo != null ? !titleNo.equals(that.titleNo) : that.titleNo != null) return false;
@@ -192,9 +168,7 @@ public class EmplInfoEntity {
     public int hashCode() {
         int result = emplNo;
         result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (edu != null ? edu.hashCode() : 0);
         result = 31 * result + (addr != null ? addr.hashCode() : 0);
-        result = 31 * result + (depNo != null ? depNo.hashCode() : 0);
         result = 31 * result + (id != null ? id.hashCode() : 0);
         result = 31 * result + (postNo != null ? postNo.hashCode() : 0);
         result = 31 * result + (titleNo != null ? titleNo.hashCode() : 0);

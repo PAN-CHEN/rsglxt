@@ -3,22 +3,22 @@ package scu.model;
 import javax.persistence.*;
 
 /**
- * Created by lijiankuan on 16/7/6.
+ * Created by DAi on 16/7/6.
  */
 @Entity
-@Table(name = "Position", schema = "rsglxt", catalog = "")
+@Table(name = "Position", schema = "RSGLXT", catalog = "")
 public class PositionEntity {
-    private int posiNo;
+    private String posiNo;
     private String posiName;
     private String change;
 
     @Id
     @Column(name = "PosiNo")
-    public int getPosiNo() {
+    public String getPosiNo() {
         return posiNo;
     }
 
-    public void setPosiNo(int posiNo) {
+    public void setPosiNo(String posiNo) {
         this.posiNo = posiNo;
     }
 
@@ -49,7 +49,7 @@ public class PositionEntity {
 
         PositionEntity that = (PositionEntity) o;
 
-        if (posiNo != that.posiNo) return false;
+        if (posiNo != null ? !posiNo.equals(that.posiNo) : that.posiNo != null) return false;
         if (posiName != null ? !posiName.equals(that.posiName) : that.posiName != null) return false;
         if (change != null ? !change.equals(that.change) : that.change != null) return false;
 
@@ -58,7 +58,7 @@ public class PositionEntity {
 
     @Override
     public int hashCode() {
-        int result = posiNo;
+        int result = posiNo != null ? posiNo.hashCode() : 0;
         result = 31 * result + (posiName != null ? posiName.hashCode() : 0);
         result = 31 * result + (change != null ? change.hashCode() : 0);
         return result;

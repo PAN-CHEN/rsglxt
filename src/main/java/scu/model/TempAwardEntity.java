@@ -3,15 +3,26 @@ package scu.model;
 import javax.persistence.*;
 
 /**
- * Created by lijiankuan on 16/7/6.
+ * Created by DAi on 16/7/6.
  */
 @Entity
-@Table(name = "TempAward", schema = "rsglxt", catalog = "")
+@Table(name = "TempAward", schema = "RSGLXT", catalog = "")
 public class TempAwardEntity {
+    private String awardNo;
     private String awardName;
-    private int money;
+    private double money;
 
     @Id
+    @Column(name = "AwardNo")
+    public String getAwardNo() {
+        return awardNo;
+    }
+
+    public void setAwardNo(String awardNo) {
+        this.awardNo = awardNo;
+    }
+
+    @Basic
     @Column(name = "AwardName")
     public String getAwardName() {
         return awardName;
@@ -23,11 +34,11 @@ public class TempAwardEntity {
 
     @Basic
     @Column(name = "Money")
-    public int getMoney() {
+    public double getMoney() {
         return money;
     }
 
-    public void setMoney(int money) {
+    public void setMoney(double money) {
         this.money = money;
     }
 
@@ -38,7 +49,8 @@ public class TempAwardEntity {
 
         TempAwardEntity that = (TempAwardEntity) o;
 
-        if (money != that.money) return false;
+        if (Double.compare(that.money, money) != 0) return false;
+        if (awardNo != null ? !awardNo.equals(that.awardNo) : that.awardNo != null) return false;
         if (awardName != null ? !awardName.equals(that.awardName) : that.awardName != null) return false;
 
         return true;
@@ -46,8 +58,12 @@ public class TempAwardEntity {
 
     @Override
     public int hashCode() {
-        int result = awardName != null ? awardName.hashCode() : 0;
-        result = 31 * result + money;
+        int result;
+        long temp;
+        result = awardNo != null ? awardNo.hashCode() : 0;
+        result = 31 * result + (awardName != null ? awardName.hashCode() : 0);
+        temp = Double.doubleToLongBits(money);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
 }

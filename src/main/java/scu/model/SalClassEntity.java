@@ -3,10 +3,10 @@ package scu.model;
 import javax.persistence.*;
 
 /**
- * Created by lijiankuan on 16/7/6.
+ * Created by DAi on 16/7/6.
  */
 @Entity
-@Table(name = "SalClass", schema = "rsglxt", catalog = "")
+@Table(name = "SalClass", schema = "RSGLXT", catalog = "")
 public class SalClassEntity {
     private String saClass;
     private double bassSal;

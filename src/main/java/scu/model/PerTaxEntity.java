@@ -4,10 +4,10 @@ import javax.persistence.*;
 import java.sql.Date;
 
 /**
- * Created by lijiankuan on 16/7/6.
+ * Created by DAi on 16/7/6.
  */
 @Entity
-@Table(name = "PerTax", schema = "rsglxt", catalog = "")
+@Table(name = "PerTax", schema = "RSGLXT", catalog = "")
 @IdClass(PerTaxEntityPK.class)
 public class PerTaxEntity {
     private int emplNo;

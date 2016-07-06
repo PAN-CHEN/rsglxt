@@ -4,10 +4,10 @@ import javax.persistence.*;
 import java.sql.Date;
 
 /**
- * Created by lijiankuan on 16/7/6.
+ * Created by DAi on 16/7/6.
  */
 @Entity
-@Table(name = "EmplTermCont", schema = "rsglxt", catalog = "")
+@Table(name = "EmplTermCont", schema = "RSGLXT", catalog = "")
 public class EmplTermContEntity {
     private int emplNo;
     private String contNo;

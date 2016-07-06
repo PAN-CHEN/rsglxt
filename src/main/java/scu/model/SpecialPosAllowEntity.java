@@ -3,21 +3,21 @@ package scu.model;
 import javax.persistence.*;
 
 /**
- * Created by lijiankuan on 16/7/6.
+ * Created by DAi on 16/7/6.
  */
 @Entity
-@Table(name = "SpecialPosAllow", schema = "rsglxt", catalog = "")
+@Table(name = "SpecialPosAllow", schema = "RSGLXT", catalog = "")
 public class SpecialPosAllowEntity {
-    private int posiNo;
+    private String posiNo;
     private double specAllow;
 
     @Id
     @Column(name = "PosiNo")
-    public int getPosiNo() {
+    public String getPosiNo() {
         return posiNo;
     }
 
-    public void setPosiNo(int posiNo) {
+    public void setPosiNo(String posiNo) {
         this.posiNo = posiNo;
     }
 
@@ -38,8 +38,8 @@ public class SpecialPosAllowEntity {
 
         SpecialPosAllowEntity that = (SpecialPosAllowEntity) o;
 
-        if (posiNo != that.posiNo) return false;
         if (Double.compare(that.specAllow, specAllow) != 0) return false;
+        if (posiNo != null ? !posiNo.equals(that.posiNo) : that.posiNo != null) return false;
 
         return true;
     }
@@ -48,7 +48,7 @@ public class SpecialPosAllowEntity {
     public int hashCode() {
         int result;
         long temp;
-        result = posiNo;
+        result = posiNo != null ? posiNo.hashCode() : 0;
         temp = Double.doubleToLongBits(specAllow);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
