@@ -11,6 +11,11 @@ import javax.servlet.http.HttpSession;
  */
 @Controller
 public class SubsystemController {
+    @RequestMapping("personel-management")
+    public String personel(){
+        return "personel-management";
+    }
+
     @RequestMapping("/payroll-management-subsystem")
     public String payroll(HttpSession session, Model model){    //返回工资子系统页面
         String factor = (String)session.getAttribute("factor");     //为模版增加factor值
