@@ -1,5 +1,9 @@
 Spring Web应用开发
 
+#重要说明
+* session使用参考tianmaying的13章
+* spring data jpa 参考tmy17章19章 以及spring.io官方教程
+
 #Controller
 * 里面放置控制器
 ##作用
@@ -19,3 +23,9 @@ Spring Web应用开发
 #model
 * 放置POJO简单java对象的地方
 * 放置与数据库中表对应的java对象
+
+#repository
+* 存放Spring Data Jpa 数据操控接口
+
+
+
