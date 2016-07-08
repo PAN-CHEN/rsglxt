@@ -35,7 +35,13 @@ public class LoginController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String loginPost(HttpSession session,  Model model, @RequestParam("emplno") String s_emplno, @RequestParam("password") String password){
-        int emplno = Integer.parseInt(s_emplno);
+        int emplno;
+        try{emplno = Integer.parseInt(s_emplno);}
+        catch (Exception e){
+            //返回页面
+            return "index";
+        }
+
 
         Loginfo loginfo = loginfoRepository.findOne(emplno);
 
@@ -45,6 +51,8 @@ public class LoginController {
             session.setAttribute("login", true);
             session.setAttribute("emplno", emplno);
             session.setAttribute("factor", userfactor.getUserfactor());
+
+            model.addAttribute("factor", userfactor.getUserfactor());
 
             return "personel-management";
         }

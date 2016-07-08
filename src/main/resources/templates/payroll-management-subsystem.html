@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
@@ -65,7 +65,7 @@
 <div class="container">
 
     <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-3" th:if="${factor == '会计部'}">
             <div class="sidebar-module sidebar-module-inset">
                 <div class="avatar">
                     <img class="img-circle" src="./images/budgets/create.jpg" width="80"/>
@@ -94,21 +94,9 @@
 
         </div>
 
-        <div class="col-sm-3">
-            <div class="sidebar-module sidebar-module-inset">
-                <div class="avatar">
-                    <img class="img-circle" src="./images/budgets/setting.jpg" width="80"/>
-                    <div>
-                        <h4>基础设置管理</h4>
 
-                    </div>
-                </div>
 
-            </div>
-
-        </div>
-
-        <div class="col-sm-3">
+        <div class="col-sm-3" th:if="${factor == '会计部'}">
             <div class="sidebar-module sidebar-module-inset">
                 <div class="avatar">
                     <img class="img-circle" src="./images/budgets/change.jpg" width="80"/>
@@ -121,9 +109,8 @@
             </div>
 
         </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-3">
+
+        <div class="col-sm-3" th:if="${factor == '会计部' || factor == '职员' || factor == '试用期'}">
             <div class="sidebar-module sidebar-module-inset">
                 <div class="avatar">
                     <img class="img-circle" src="./images/budgets/tax.jpg" width="80"/>
@@ -138,7 +125,7 @@
         </div>
 
 
-        <div class="col-sm-3">
+        <div class="col-sm-3" th:if="${factor == '会计部' || factor == '学院领导' || factor == '人事处'}">
             <div class="sidebar-module sidebar-module-inset">
                 <div class="avatar">
                     <img class="img-circle" src="./images/budgets/list.jpg" width="80"/>
@@ -152,7 +139,7 @@
 
         </div>
 
-        <div class="col-sm-3">
+        <div class="col-sm-3"  th:if="${factor == '会计部' || factor == '学院领导' || factor == '人事处'}">
             <div class="sidebar-module sidebar-module-inset">
                 <div class="avatar">
                     <img class="img-circle" src="./images/budgets/delivery.jpg" width="80"/>
@@ -169,37 +156,6 @@
         <div class="col-sm-3">
             <div class="sidebar-module sidebar-module-inset">
                 <div class="avatar">
-                    <img class="img-circle" src="./images/budgets/month.jpg" width="80"/>
-                    <div>
-                        <h4>月末处理</h4>
-
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-sm-3">
-            <div class="sidebar-module sidebar-module-inset">
-                <div class="avatar">
-                    <img class="img-circle" src="./images/budgets/salary.jpg" width="80"/>
-                    <div>
-                        <h4>工资类别汇总</h4>
-
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="col-sm-3">
-            <div class="sidebar-module sidebar-module-inset">
-                <div class="avatar">
                     <img class="img-circle" src="./images/budgets/search.jpg" width="80"/>
                     <div>
                         <h4>工资查询</h4>
@@ -211,7 +167,7 @@
 
         </div>
 
-        <div class="col-sm-3">
+        <div class="col-sm-3" th:if="${factor == '会计部' || factor == '学院领导' || factor == '人事处'}">
             <div class="sidebar-module sidebar-module-inset">
                 <div class="avatar">
                     <img class="img-circle" src="./images/budgets/graph.jpg" width="80"/>

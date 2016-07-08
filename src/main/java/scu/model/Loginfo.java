@@ -2,21 +2,22 @@ package scu.model;
 
 import javax.persistence.*;
 
-/**
- * Created by DAi on 16/7/7.
- */
+
+
 @Entity
+
 public class Loginfo {
     @Id
-    private int emplno;
+    private Integer emplno;
     private String password;
     private String username;
 
-    public int getEmplno() {
+
+    public Integer getEmplno() {
         return emplno;
     }
 
-    public void setEmplno(int emplno) {
+    public void setEmplno(Integer emplno) {
         this.emplno = emplno;
     }
 
