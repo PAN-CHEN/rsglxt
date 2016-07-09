@@ -3,6 +3,7 @@ package scu.model;
 import javax.persistence.*;
 
 /**
+<<<<<<< Updated upstream
  * Created by DAi on 16/7/7.
  */
 @Entity
@@ -22,6 +23,8 @@ public class Emplinfo {
     private String idchangech;
     private String leavech;
     private String discontch;
+
+
 
     public int getEmplno() {
         return emplno;
