@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head lang="en">
     <meta charset="UTF-8"/>
-    <title>信息录入</title>
+    <title>专业技能</title>
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="blog.css"/>
     <style type="text/css">
@@ -47,46 +47,16 @@
     <div class="row">
         <div class="col-sm-8">
             <table class="table">
+                <div th:each="skill : ${skills}">
                 <tr>
-                    <td>员工号</td>
-                    <td th:text="${emplinfo.emplno}"></td>
+                    <td>技能编号</td>
+                    <td th:text="${skill.skillno}"></td>
                 </tr>
                 <tr>
-                    <td>职务</td>
-                    <td th:text="${emplinfo.postno}"></td>
+                    <td>技能</td>
+                    <td th:text="${skill.skillname}"></td>
                 </tr>
-                <tr>
-                    <td>职称</td>
-                    <td th:text="${emplinfo.titleno}"></td>
-                </tr>
-                <tr>
-                    <td>姓名</td>
-                    <td th:text="${emplinfo.name}"></td>
-                </tr>
-                <tr>
-                    <td>部门</td>
-                    <td th:text="${emplinfo.depno}"></td>
-                </tr>
-                <tr>
-                    <td>学历</td>
-                    <td th:text="${emplinfo.edu}"></td>
-                </tr>
-                <tr>
-                    <td>住址</td>
-                    <td th:text="${emplinfo.addr}"></td>
-                </tr>
-                <tr>
-                    <td>身份证编号</td>
-                    <td th:text="${emplinfo.id}"></td>
-                </tr>
-                <tr>
-                    <td>专业技能</td>
-                    <td ><a href="skills">技能</a></td>
-                </tr>
-                <tr>
-                    <td>档案编号</td>
-                    <td ><a th:href="${emplinfo.fileno}" th:text="${emplinfo.fileno}"></a></td>
-                </tr>
+                </div>
             </table>
 
         </div>
