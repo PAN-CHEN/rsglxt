@@ -3,8 +3,9 @@ package scu.controller.RSBDGL.Search;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import scu.controller.RSBDGL.Record;
+
 import scu.model.Emplinfo;
+import scu.repository.EmplinfoRepository;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,8 +15,10 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Controller
 public class EmployeeChangeSearch implements Search {
+//
     @Autowired
     private EmplinfoRepository emplinfoRepository;
+
     @RequestMapping("/empliinfochange")
     public void SearchFromDB(HttpServletRequest request){
 //        身份修改确认

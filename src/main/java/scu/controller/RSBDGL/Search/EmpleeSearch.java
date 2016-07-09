@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import scu.controller.RSBDGL.Record;
 import scu.model.Emplinfo;
+import scu.repository.EmplinfoRepository;
 
 import javax.persistence.criteria.*;
 import javax.servlet.http.HttpServletRequest;
@@ -46,23 +47,23 @@ public class EmpleeSearch implements Search{
     public void SearchFromDB(HttpServletRequest request){
 //        查询人员基本信息表
 //        新增员工确认
-        emplinfoRepository.findAll(new Specification<Emplinfo>() {
-            @Override
-            public Predicate toPredicate(Root<Emplinfo> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
-                Path<String> namePath=root.get("name");
-                Path<String> EduPath=root.get("edu");
-                Path<String> AddrPath=root.get("addr");
-                Path<String> DepnoPath=root.get("depno");
-                Path<String> IdPath=root.get("id");
-                Path<String> PostnoPath=root.get("postno");
-                Path<String> TitlenoPath=root.get("titleno");
-                Path<String> TelPath=root.get("tel");
-                Path<String> FilenoPath=root.get("fileno");
-                Path<String> NewaddchPath=root.get("newaddch");
-                criteriaQuery.where(criteriaBuilder.like(namePath,"%"+request.getParameter("name")+"%"),criteriaBuilder.like(EduPath,"%"+request.getParameter("edu")+"%"),criteriaBuilder.like(AddrPath,"%"+request.getParameter("addr")+"%"),criteriaBuilder.like(DepnoPath,"%"+request.getParameter("depno")+"%"),criteriaBuilder.like(IdPath,"%"+request.getParameter("id")+"%"),criteriaBuilder.like(PostnoPath,"%"+request.getParameter("postno")+"%"),criteriaBuilder.like(TitlenoPath,"%"+request.getParameter("titleno")+"%"),criteriaBuilder.like(TelPath,"%"+request.getParameter("tel")+"%"),criteriaBuilder.like(FilenoPath,"%"+request.getParameter("fileno")+"%"),criteriaBuilder.like(NewaddchPath,"1"));
-                return null;
-            }
-        });
+//        emplinfoRepository.findAll(new Specification<Emplinfo>() {
+//            @Override
+//            public Predicate toPredicate(Root<Emplinfo> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+//                Path<String> namePath=root.get("name");
+//                Path<String> EduPath=root.get("edu");
+//                Path<String> AddrPath=root.get("addr");
+//                Path<String> DepnoPath=root.get("depno");
+//                Path<String> IdPath=root.get("id");
+//                Path<String> PostnoPath=root.get("postno");
+//                Path<String> TitlenoPath=root.get("titleno");
+//                Path<String> TelPath=root.get("tel");
+//                Path<String> FilenoPath=root.get("fileno");
+//                Path<String> NewaddchPath=root.get("newaddch");
+//                criteriaQuery.where(criteriaBuilder.like(namePath,"%"+request.getParameter("name")+"%"),criteriaBuilder.like(EduPath,"%"+request.getParameter("edu")+"%"),criteriaBuilder.like(AddrPath,"%"+request.getParameter("addr")+"%"),criteriaBuilder.like(DepnoPath,"%"+request.getParameter("depno")+"%"),criteriaBuilder.like(IdPath,"%"+request.getParameter("id")+"%"),criteriaBuilder.like(PostnoPath,"%"+request.getParameter("postno")+"%"),criteriaBuilder.like(TitlenoPath,"%"+request.getParameter("titleno")+"%"),criteriaBuilder.like(TelPath,"%"+request.getParameter("tel")+"%"),criteriaBuilder.like(FilenoPath,"%"+request.getParameter("fileno")+"%"),criteriaBuilder.like(NewaddchPath,"1"));
+//                return null;
+//            }
+//        });
     }
 
 }
