@@ -16,7 +16,6 @@ import scu.model.Loginfo;
 @Controller
 public class BaseInfoController {
 
-
     @Autowired
     private LoginfoRepository loginfoRepository;
 

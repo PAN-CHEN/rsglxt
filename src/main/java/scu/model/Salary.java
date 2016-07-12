@@ -16,6 +16,18 @@ public class Salary {
     private double dmoney;
     private double tmoney;
 
+    public Salary() {
+    }
+
+    public Salary(int emplno, Date date, double total, double cmoney, double dmoney, double tmoney) {
+        this.emplno = emplno;
+        this.date = date;
+        this.total = total;
+        this.cmoney = cmoney;
+        this.dmoney = dmoney;
+        this.tmoney = tmoney;
+    }
+
     public int getEmplno() {
         return emplno;
     }

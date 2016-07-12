@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="/css/base_set.css"/>
+	<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script src="js/set-account.js"></script>
+	
+	<!--<script>
+	
+function show(){
+    var test=document.getElementById("time").value;
+if(test==null || test==""){
+    document.getElementById("time").placeholder="yyyy-mm-dd";
+}else{
+    document.getElementById("time").placeholder='';
+}
+}
+function hide(){
+    document.getElementById("time").placeholder='';
+}
+
+</script>-->
+
+<title>基础建账</title>
+</head>
+
+<body>
+<nav class="navbar navbar-inverse">
+	<div class="container">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="/payroll-management-subsystem">人事管理-工资福利管理</a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="/set/base">基础项目设置</a></li>
+				<li><a href="/set/account">员工建账</a></li>
+				<li><a href="salary_inquiry.html">工资查询</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<div class="container">
+<div class="form">
+	<div class="page-header">
+		<h1>建账</h1>
+		<p>请进行相关选择，给新进员工建立个人账簿。</p>
+	</div>
+
+	<div class="table">
+		<form name="set_base" action="/set/account/post" method="post">
+		
+		 <div id="a" class="field">
+			<legend>员工</legend>
+			<table>
+			<tr>
+				<td>员工编号：<input type="text" name="Emplno" placeholder="员工编号"/></td>
+				<td class="td">津贴系数：<select name="AllowRatio" id="AllowRatio" style="width:100px;height:26px">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+					<option>6</option>
+					<option>7</option>
+					<option>8</option>
+					<option>9</option>
+					<option>10</option></select>
+				</td>
+				<td class="td">工资等级：<select name="SalClass" id="SalClass" style="width:100px;height:26px" th:each = "salclass : ${salclasses}">
+					<option th:text="${salclass.saclass}">No1</option></select>
+				</td></tr>
+			</table>
+         </div>
+		
+		 <div id="b" class="field">
+			<legend>员工工资发放银行:</legend>
+			<table id="table_one">
+				<tr>
+					<td>发放银行：<select name="BankName" id="BankName" style="width:100px;height:26px">
+					<option>中国建设银行</option>
+					<option>中国农业银行</option>
+					<option>中国工商银行</option>
+					<option>中国银行</option>
+					<option>交通银行</option>
+					<option>招商银行</option>
+					</select></td>
+					<td class="td">银行卡号：<input type="text" name="BankNo" id="BankNo" placeholder="银行卡号" onblur="testlength()"/></td>
+				</tr>
+				<tr><td>&nbsp;</td></tr>
+			</table>
+         </div>
+		
+		 <div id="c" class="field">
+			<legend onclick="myfunction()">工资相关项目设置</legend>
+			<table id="table_two">
+			<tr class="tr">
+				<td>个人所得税税率等级：<select name="PerTaxRank" id="PerTaxRank" style="width:100px;height:26px" th:each = "pertaxrank : ${pertaxranks}">
+						<option th:text="${pertaxrank.pertaxrank}">0</option></select></td>
+				<td class="td" >工资权限：<select name="SalAuth" id="SalAuth" style="width:100px;height:26px" th:each = "department : ${departments}" >
+					<option th:text="${department.departname}">人民币</option></select></td>
+				<td class="td">币种：<select name="Currency" id="Currency" style="width:100px;height:26px">
+						<option>人民币</option>
+						<option>美元</option></select></td>
+			</tr>
+			</table>
+		</div>
+		<button type ="submit" class="btn pull-right btn-primary" id="bt">保存</button>
+		</form>
+	</div>
+	</div>
+</div>
+</body>
+</html>

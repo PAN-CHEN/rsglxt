@@ -11,6 +11,9 @@ public class Formalemplallowratio {
     private int emplno;
     private double allowratio;
 
+    public Formalemplallowratio() {
+    }
+
     public int getEmplno() {
         return emplno;
     }

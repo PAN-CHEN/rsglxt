@@ -31,7 +31,6 @@
                 <li><a href="/">首页</a></li>
                 <li><a href="/">登陆</a></li>
                 <li><a href="/">注册</a></li>
-
             </ul>
 
         </div>
@@ -65,7 +64,12 @@
 <div class="container">
 
     <div class="row">
+======= Updated upstream
         <div class="col-sm-3" th:if="${factor == '会计部'}">
+=======
+        <div class="col-sm-3">
+            <a href="set_account.html">
+======= Stashed changes
             <div class="sidebar-module sidebar-module-inset">
                 <div class="avatar">
                     <img class="img-circle" src="/images/budgets/create.jpg" width="80"/>
@@ -76,6 +80,7 @@
                 </div>
 
             </div>
+            </a>
 
         </div>
 
@@ -109,9 +114,10 @@
             </div>
 
         </div>
-
+</div>
         <div class="col-sm-3" th:if="${factor == '会计部' || factor == '职员' || factor == '试用期'}">
             <div class="sidebar-module sidebar-module-inset">
+                <a href="/pertax">
                 <div class="avatar">
                     <img class="img-circle" src="/images/budgets/tax.jpg" width="80"/>
                     <div>
@@ -119,7 +125,7 @@
 
                     </div>
                 </div>
-
+                </a>
             </div>
 
         </div>
@@ -155,6 +161,7 @@
 
         <div class="col-sm-3">
             <div class="sidebar-module sidebar-module-inset">
+                <a href="/salary/query">
                 <div class="avatar">
                     <img class="img-circle" src="/images/humans/try.jpg" width="80"/>
                     <div>
@@ -162,7 +169,7 @@
 
                     </div>
                 </div>
-
+                </a>
             </div>
 
         </div>
@@ -183,7 +190,5 @@
 
     </div>
 </div>
-
-
 </body>
 </html>

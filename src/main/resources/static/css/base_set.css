@@ -1,0 +1,32 @@
+﻿
+.field{
+	padding:15px 10% 15px 15%;
+	margin-top:20px;
+	position:relative;
+	border-radius:15px;
+	background-color:#ADD8E6;
+}
+.td{
+	padding-left:10px;
+	font-size:14px;
+	
+}
+
+#table_one #table_two th{
+	font-size:14px;
+}
+#td1{
+	font-weight:bold;
+}
+#table_two {
+	padding-top:10px;
+    border-collapse:separate;
+	border-spacing:10px;
+}
+li{
+	display:inline;
+	padding-left:10px;
+}
+.btn{
+	margin-top:20px;
+}

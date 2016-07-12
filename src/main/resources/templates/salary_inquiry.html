@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+	<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script src="./js/fold_unfold.js"></script>
+
+		
+	<style type="text/css">
+		.navbar{
+			border-radius: 0;
+			margin: 0;
+		}
+        div.row{
+			margin:0 40px 0 40px;
+		}
+		.container{
+		background-images: url ('./images/forest.jpg') no-repeat;
+		opacity:1;
+		}
+		
+	</style>
+	<title>人事管理系统</title>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+	<div class="container">
+		<div class="navbar-header">
+			<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/">人事管理-工资福利管理</a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="/">工资查询</a></li>
+				<li><a href="/">登陆</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<div class="container">
+
+<div class="page-header">
+	<h1>员工工资查询</h1>
+	<p>请输入要查询的员工信息，点击查看完整功能。</p>
+</div>
+
+<div id="frame">
+
+ <a href="javascript:" onclick="document.all.fullContent_one.style.display=(document.all.fullContent_one.style.display=='none')?'':'none';document.all.smallContent.style.display=(document.all.smallContent.style.display=='none')?'':'none'" ><h2 align="center">单条件查询</h2></a>
+
+ <div class="block" id="fullContent_one" style="display:none;">	
+<form action="/salary/query_s" method="post" target="_self">
+	<table th:if="${factor == '职员'}" class="table" name="wage_inquiry_table" cellspacing="0" cellpadding="0" >
+		<tr><td class="name">查询年月：<input name="month" type="text"></input>&nbsp;*</td></tr>
+		<tr><td><button type ="submit" class="btn pull-right btn-primary" >提交</button></td></tr>
+	</table>
+	<table th:if="${factor == '人事部' }" class="table" name="wage_inquiry_table" cellspacing="0" cellpadding="0" >
+		<tr><td class="name">查询员工编号：<input name="emplno" type="text"></input>&nbsp;*</td></tr>
+		<tr><td class="name">查询月份：<input name="month" type="text"></input>&nbsp;*</td></tr>
+		<tr><td><button type ="submit" class="btn pull-right btn-primary" >提交</button></td></tr>
+	</table>
+</form>
+
+<table id="wage_table" th:if="${ok_s == 'yes'}">
+	<tr>
+		<h2>工资总表</h2>
+	</tr>
+    <tr>
+		<th>员工编号&nbsp;</th>
+		<th>工资发放时间</th>
+		<th>工资发放总数</th>
+		<th>国家工资</th>
+		<th>院内津贴</th>
+		<th>临时津贴</th>
+	</tr>
+	<tr  th:each="salary : ${salaries}">
+		<!--th:if="${method == 'post'}"-->
+		<!--th:each="员工:${员工s}"-->
+		<td class="name" th:text="  ${salary.emplno} +'&nbsp;|&nbsp;' ">name</td>
+		<td class="wage" th:text="  ${salary.date} +'&nbsp;|&nbsp;' ">wage</td>
+		<td class="college" th:text="  ${salary.total} +'&nbsp;|&nbsp;' ">college</td>
+		<td class="bank" th:text=" ${salary.cmoney}+ '&nbsp;|&nbsp;' ">bank</td>
+		<td class="date" th:text=" ${salary.dmoney} + '&nbsp;|&nbsp;'">date</td>
+		<td class="tax" th:text=" ${salary.tmoney} + '&nbsp;|&nbsp;'">tax</td>
+	</tr>
+</table>
+	 <table id="wage_table" th:if="${ok_s == 'yes'}">
+		 <tr>
+			 <h2>津贴表</h2>
+		 </tr>
+		 <tr>
+			 <th>员工编号&nbsp;</th>
+			 <th>津贴发放时间</th>
+			 <th>补发金额</th>
+			 <th>水电补贴</th>
+			 <th>伙食费</th>
+			 <th>特殊岗位补贴</th>
+			 <th>公积金扣费</th>
+			 <th>院内补贴系数</th>
+			 <th>实发补贴</th>
+		 </tr>
+		 <tr  th:each="allowance : ${allowances}" >
+			 <!---->
+			 <!--th:each="员工:${员工s}"-->
+			 <td class="name" th:text="  ${allowance.emplno} +'&nbsp;|&nbsp;' ">name</td>
+			 <td class="name" th:text="  ${allowance.date} +'&nbsp;|&nbsp;' ">name</td>
+			 <td class="name" th:text="  ${allowance.regive} +'&nbsp;|&nbsp;' ">name</td>
+			 <td class="name" th:text="  ${allowance.wegive} +'&nbsp;|&nbsp;' ">name</td>
+			 <td class="name" th:text="  ${allowance.foodgive} +'&nbsp;|&nbsp;' ">name</td>
+			 <td class="name" th:text="  ${allowance.specallow} +'&nbsp;|&nbsp;' ">name</td>
+			 <td class="name" th:text="  ${allowance.accumfund} +'&nbsp;|&nbsp;' ">name</td>
+			 <td class="name" th:text="  ${allowance.allowratio} +'&nbsp;|&nbsp;' ">name</td>
+			 <td class="name" th:text="  ${allowance.allow} +'&nbsp;|&nbsp;' ">name</td>
+		 </tr>
+	 </table>
+</div>
+
+<a href="javascript:" onclick="document.all.fullContent.style.display=(document.all.fullContent.style.display=='none')?'':'none';document.all.smallContent.style.display=(document.all.smallContent.style.display=='none')?'':'none'" ><h2 align="center">多条件查询</h2></a>
+
+<div class="block" id="fullContent" style="display:none;">
+<form action="/salary/query_m" method="post" target="_self">
+	<table class="table" name="wage_inquiry_table2" cellspacing="0" cellpadding="0" >
+		<tr><td class="month">月份：&nbsp;&nbsp;<input id="month" name="month" type="text"></input>&nbsp;*</td></tr>
+		<tr><td>查询工资部分：&nbsp;&nbsp;<select name="type" size="1" id="allowance">
+				<option id="1">国家津贴</option>
+				<option id="2">院内津贴</option>
+				<option id="3">临时津贴</option>
+				<option id="4">全部信息</option>
+				</select>
+			</td></tr>
+		<tr th:if="${factor == '人事部'}"><td class="dep">查询部门:&nbsp;&nbsp;<select name="dep" size="1" id="allowance" th:each="dep : ${department}">
+			<option id="${dep.departno}" th:text="${dep.departname}">财务部</option>
+		</select></td></tr>
+		<tr>
+		<td><button type ="submit" class="btn pull-right btn-primary" >提交</button></td>
+		</tr>
+	</table>
+</form>
+
+	<table id="wage_table" th:if="${ok_m == 'yes'}">
+		<tr>
+			<th>员工编号&nbsp;</th>
+			<th>日期</th>
+			<th th:if="${type == '全部信息' || type =='国家津贴'}">国家津贴</th>
+			<th th:if="${type == '全部信息' || type =='院内津贴'}">院内津贴</th>
+			<th th:if="${type == '全部信息' || type =='临时津贴'}">临时津贴</th>
+		</tr>
+		<tr th:each = "salary_m : ${salary_m}">
+			<td class="name" th:text="  ${salary_m.emplno} +'&nbsp;|&nbsp;' ">name</td>
+			<td class="name" th:text="  ${salary_m.date} +'&nbsp;|&nbsp;' ">name</td>
+			<td class="name" th:if="${type == '全部信息' || type =='国家津贴'}" th:text="  ${salary_m.cmoney} +'&nbsp;|&nbsp;' ">name</td>
+			<td class="name" th:if="${type == '全部信息' || type =='院内津贴'}" th:text="  ${salary_m.dmoney} +'&nbsp;|&nbsp;' ">name</td>
+			<td class="name" th:if="${type == '全部信息' || type =='临时津贴'}" th:text="  ${salary_m.tmoney} +'&nbsp;|&nbsp;' ">name</td>
+		</tr>
+	</table>
+
+</div>
+
+</div>
+</div>	
+
+</body>
+</html>
