@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import scu.Interceptor.FileInterceptor;
 import scu.Interceptor.LoginInterceptor;
 
 @Configuration
@@ -16,6 +17,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new LoginInterceptor())
                 .addPathPatterns("/**").excludePathPatterns("/login").excludePathPatterns("/error/*");
+//        registry.addInterceptor(new FileInterceptor()).addPathPatterns("/file/*");
     }
 
 
